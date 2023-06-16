@@ -4,23 +4,37 @@ using UnityEngine;
 using UnityEngine.AI;
 public class AIscript : MonoBehaviour
 {
-    public NavMeshAgent Enemy;
+    public NavMeshAgent enemy;
 
-    public Transform Player;
-    public Transform Base;
+    public Transform player;
+    [SerializeField] public Transform Base;
 
-    public string BaseExists;
+    public bool baseExists;
+    public bool playerInRange;
 
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Enemy = GetComponent<NavMeshAgent>();
+        enemy = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+
+        if (playerInRange == false)
+        {
+            enemy.destination = Base.position;
+        }
+        else
+        {
+            if (playerInRange == true)
+            {
+                enemy.destination = player.position;
+            }
+               
+        }
         
     }
 }
