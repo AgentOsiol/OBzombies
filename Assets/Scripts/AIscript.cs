@@ -12,7 +12,8 @@ public class AIscript : MonoBehaviour
     public bool baseExists;
     public bool playerInRange;
 
-    
+    public static bool SphereCast;
+
     // Start is called before the first frame update
     void Awake()
     {
