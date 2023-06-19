@@ -277,6 +277,11 @@ MonoBehaviour:
   Base: {fileID: 1025611892}
   baseExists: 0
   playerInRange: 0
+  radius: 0.5
+  maxDistance: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &224849240
 GameObject:
   m_ObjectHideFlags: 0

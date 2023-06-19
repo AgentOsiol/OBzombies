@@ -14,6 +14,14 @@ public class AIscript : MonoBehaviour
 
     public static bool SphereCast;
 
+    public float radius;
+    public float maxDistance;
+
+    public LayerMask layerMask;
+
+    private Vector3 origin;
+    private Vector3 direction;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,8 +29,16 @@ public class AIscript : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
+        origin = transform.position;
+        direction = transform.forward;
+        RaycastHit hit;
+
+        if (Physics.SphereCast(origin, radius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        {
+            
+        }
 
         if (playerInRange == false)
         {
