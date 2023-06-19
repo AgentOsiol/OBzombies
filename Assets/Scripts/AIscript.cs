@@ -6,6 +6,7 @@ public class AIscript : MonoBehaviour
 {
     public NavMeshAgent enemy;
 
+
     public Transform player;
     [SerializeField] public Transform Base;
 
@@ -30,15 +31,25 @@ public class AIscript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         origin = transform.position;
         direction = transform.forward;
         RaycastHit hit;
 
         if (Physics.SphereCast(origin, radius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
         {
-            
-        }
+            if (hit.collider.tag == "Player")
+            {
+                playerInRange = true;
+            }
+            else
+            {
+                playerInRange = false;
+            }
+
+        }*/
+
+        playerInRange = Physics.CheckSphere(this.transform.position, radius, layerMask);
 
         if (playerInRange == false)
         {
