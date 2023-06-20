@@ -5,10 +5,11 @@ using UnityEngine.AI;
 public class AIscript : MonoBehaviour
 {
     public NavMeshAgent enemy;
-
+    //public Rigidbody enemyrb;
 
     public Transform player;
     [SerializeField] public Transform Base;
+    
 
     public bool baseExists;
     public bool playerInRange;
@@ -18,15 +19,25 @@ public class AIscript : MonoBehaviour
     public float radius;
     public float maxDistance;
 
+    public int health;
+    private int currentHealth;
+
     public LayerMask layerMask;
 
     private Vector3 origin;
     private Vector3 direction;
+    private Vector3 destination;
+    
+
 
     // Start is called before the first frame update
     void Awake()
     {
         enemy = GetComponent<NavMeshAgent>();
+
+        health = 100;
+
+        //enemyrb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -49,20 +60,25 @@ public class AIscript : MonoBehaviour
 
         }*/
 
+         
+        /*Vector3 moveDirection = (destination - this.transform.position).normalized;
+        enemyrb.MovePosition(moveDirection);*/
+
+        // rigidbody.velocity
+        // Vector3 moveDirection = (destination - this.transform.position).normalized;
+
         playerInRange = Physics.CheckSphere(this.transform.position, radius, layerMask);
+        
 
         if (playerInRange == false)
         {
             enemy.destination = Base.position;
         }
-        else
+        else if (playerInRange == true)
         {
-            if (playerInRange == true)
-            {
-                enemy.destination = player.position;
-            }
-               
+            enemy.destination = player.position;
         }
+        
         
     }
 }
