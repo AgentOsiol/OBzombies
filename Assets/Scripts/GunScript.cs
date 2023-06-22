@@ -7,7 +7,7 @@ public class GunScript : MonoBehaviour
     public Camera fpsCam;
 
     public int damage = 10;
-    public float range = 100f;
+    public int range = 100;
 
     Vector3 origin;
     Vector3 direction;

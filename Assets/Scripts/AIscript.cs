@@ -7,6 +7,8 @@ public class AIscript : MonoBehaviour
     public NavMeshAgent enemy;
     //public Rigidbody enemyrb;
 
+    GameObject Enemy;
+
     public Transform player;
     [SerializeField] public Transform Base;
     
@@ -20,7 +22,7 @@ public class AIscript : MonoBehaviour
     public float maxDistance = 0.1f;
 
     public int health = 100;
-    private int currentHealth;
+
 
     public LayerMask layerMask;
 
@@ -66,6 +68,11 @@ public class AIscript : MonoBehaviour
 
         // rigidbody.velocity
         // Vector3 moveDirection = (destination - this.transform.position).normalized;
+
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
 
         playerInRange = Physics.CheckSphere(this.transform.position, radius, layerMask);
         
