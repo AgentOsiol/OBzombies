@@ -16,10 +16,10 @@ public class AIscript : MonoBehaviour
 
     public static bool SphereCast;
 
-    public float radius;
-    public float maxDistance;
+    public float radius = 12.5f;
+    public float maxDistance = 0.1f;
 
-    public int health;
+    public int health = 100;
     private int currentHealth;
 
     public LayerMask layerMask;
