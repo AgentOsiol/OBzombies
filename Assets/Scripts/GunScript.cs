@@ -34,10 +34,9 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
-        Debug.DrawRay(fpsCam.ScreenPointToRay(Input.mousePosition).origin, fpsCam.ScreenPointToRay(Input.mousePosition).direction * 20, Color.yellow, 10);
+        Debug.DrawRay(fpsCam.ScreenPointToRay(Input.mousePosition).origin, fpsCam.ScreenPointToRay(Input.mousePosition).direction * range, Color.yellow, 10);
         if (Physics.Raycast(origin, direction, out hit, range, layerMask))
         {
-            
             aIscript = hit.collider.GetComponent<AIscript>();
             aIscript.health -= damage;
         }
