@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public RigidbodyInterpolation interpolate;
 
     public float speed = 12f;
     public float gravity = -9.81f;
