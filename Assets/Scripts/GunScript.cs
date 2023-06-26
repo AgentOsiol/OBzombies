@@ -9,6 +9,9 @@ public class GunScript : MonoBehaviour
     public int damage = 10;
     public int range = 100;
 
+    public float fireRate = 10.0f;
+    private float nextTimeToFire = 0f;
+
     Vector3 origin;
     Vector3 direction;
 
@@ -26,8 +29,9 @@ public class GunScript : MonoBehaviour
     {
         origin = transform.position;
         direction = fpsCam.ScreenPointToRay(Input.mousePosition).direction;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 2f / fireRate;
             Shoot();
         }
     }
