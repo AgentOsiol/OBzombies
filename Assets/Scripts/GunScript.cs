@@ -8,7 +8,7 @@ public class GunScript : MonoBehaviour
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
 
-    public int damage = 10;
+    public int damage = 20;
     public int range = 100;
 
     public float fireRate = 10.0f;

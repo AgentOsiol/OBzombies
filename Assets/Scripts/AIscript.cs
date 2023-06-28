@@ -19,10 +19,12 @@ public class AIscript : MonoBehaviour
 
     public static bool SphereCast;
 
-    public float radius = 12.5f;
-    public float maxDistance = 0.1f;
+    public float maxDistance = 0.1f, radius = 12.5f;
+    public float attackRadius = 1.0f;
+    private float nextTimeToAttack = 0f, attackRate = 10.0f;
 
-    public int health = 100;
+
+    public int health = 100, damage = 10;
 
 
     public LayerMask layerMask;
@@ -30,8 +32,9 @@ public class AIscript : MonoBehaviour
     private Vector3 origin;
     private Vector3 direction;
     private Vector3 destination;
-    
+    private GunScript gunScript;
 
+    bool deathPlayed = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,36 +48,33 @@ public class AIscript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {/*
+    {
         origin = transform.position;
         direction = transform.forward;
         RaycastHit hit;
 
-        if (Physics.SphereCast(origin, radius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        if (Physics.SphereCast(origin, attackRadius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player" || hit.collider.tag == "Base" && Time.time >= nextTimeToAttack)
             {
-                playerInRange = true;
+                nextTimeToAttack = Time.time + 5f / attackRate;
+                Attack();
             }
-            else
-            {
-                playerInRange = false;
-            }
+        }
 
-        }*/
 
-         
         /*Vector3 moveDirection = (destination - this.transform.position).normalized;
         enemyrb.MovePosition(moveDirection);*/
 
         // rigidbody.velocity
         // Vector3 moveDirection = (destination - this.transform.position).normalized;
 
-        if (health < 1)
+        
+
+        if (health <= 0 && !deathPlayed)
         {
-            enemyDeathEffect.Play();
-            Destroy(gameObject);
-        }
+            StartCoroutine("Die");
+        }   
 
         playerInRange = Physics.CheckSphere(this.transform.position, radius, layerMask);
         
@@ -87,5 +87,22 @@ public class AIscript : MonoBehaviour
         {
             enemy.destination = player.position;
         }
+    }
+    void Attack()
+    {
+        gunScript = GetComponent<GunScript>();
+    }
+    
+    IEnumerator Die()
+    {
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        enemyDeathEffect.Play();
+        deathPlayed = true;
+
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+
     }
 }
