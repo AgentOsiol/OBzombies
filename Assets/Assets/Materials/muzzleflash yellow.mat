@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: muzzleflash yellow
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
@@ -73,6 +73,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.25797725, b: 0, a: 1}
-    - _EmissionColor: {r: 0.63075733, g: 0.10224175, b: 0.03433981, a: 1}
+    - _Color: {r: 1, g: 0.6988385, b: 0, a: 1}
+    - _EmissionColor: {r: 1, g: 0.4410207, b: 0, a: 1}
   m_BuildTextureStacks: []

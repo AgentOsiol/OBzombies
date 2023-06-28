@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GunScript : MonoBehaviour
 {
     public Camera fpsCam;
+    public ParticleSystem muzzleFlash;
 
     public int damage = 10;
     public int range = 100;
@@ -19,6 +21,7 @@ public class GunScript : MonoBehaviour
     RaycastHit hit;
 
     private AIscript aIscript;
+    
 
     private void Start()
     {
@@ -38,6 +41,8 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
+        muzzleFlash.Play();
+
         Debug.DrawRay(fpsCam.ScreenPointToRay(Input.mousePosition).origin, fpsCam.ScreenPointToRay(Input.mousePosition).direction * range, Color.yellow, 10);
         if (Physics.Raycast(origin, direction, out hit, range, layerMask))
         {

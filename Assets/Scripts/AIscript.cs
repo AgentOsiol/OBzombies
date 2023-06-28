@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class AIscript : MonoBehaviour
 {
     public NavMeshAgent enemy;
+    public ParticleSystem enemyDeathEffect;
     //public Rigidbody enemyrb;
 
     GameObject Enemy;
@@ -71,6 +72,7 @@ public class AIscript : MonoBehaviour
 
         if (health < 1)
         {
+            enemyDeathEffect.Play();
             Destroy(gameObject);
         }
 
@@ -85,7 +87,5 @@ public class AIscript : MonoBehaviour
         {
             enemy.destination = player.position;
         }
-        
-        
     }
 }
