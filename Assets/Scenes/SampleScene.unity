@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6708f66b3d58aa945afb626cd7abbc6a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6708f66b3d58aa945afb626cd7abbc6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5287,7 +5287,7 @@ MonoBehaviour:
   radius: 12.5
   attackRadius: 1
   health: 100
-  damage: 10
+  zdamage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10329,7 +10329,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -25006,7 +25006,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -34868,7 +34868,7 @@ MonoBehaviour:
   radius: 12.5
   attackRadius: 1
   health: 100
-  damage: 10
+  zdamage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -40136,7 +40136,7 @@ MonoBehaviour:
   radius: 12.5
   attackRadius: 1
   health: 100
-  damage: 10
+  zdamage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -40307,7 +40307,7 @@ Transform:
   - {fileID: 708026706}
   - {fileID: 224849241}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1237373003
 MonoBehaviour:
@@ -40440,7 +40440,7 @@ MonoBehaviour:
   radius: 12.5
   attackRadius: 1
   health: 100
-  damage: 10
+  zdamage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -55218,7 +55218,7 @@ MonoBehaviour:
   radius: 12.5
   attackRadius: 1
   health: 100
-  damage: 10
+  zdamage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -70278,7 +70278,7 @@ MonoBehaviour:
   radius: 12.5
   attackRadius: 1
   health: 100
-  damage: 10
+  zdamage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 8

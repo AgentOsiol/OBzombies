@@ -24,7 +24,7 @@ public class AIscript : MonoBehaviour
     private float nextTimeToAttack = 0f, attackRate = 10.0f;
 
 
-    public int health = 100, damage = 10;
+    public int health = 100, zdamage = 10;
 
 
     public LayerMask layerMask;
@@ -32,7 +32,7 @@ public class AIscript : MonoBehaviour
     private Vector3 origin;
     private Vector3 direction;
     private Vector3 destination;
-    private GunScript gunScript;
+    private PlayerManager playerManager;
 
     bool deathPlayed = false;
 
@@ -90,7 +90,8 @@ public class AIscript : MonoBehaviour
     }
     void Attack()
     {
-        gunScript = GetComponent<GunScript>();
+        playerManager = GetComponent<PlayerManager>();
+        playerManager.pHealth -= zdamage;
     }
     
     IEnumerator Die()
